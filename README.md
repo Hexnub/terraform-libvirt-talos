@@ -76,7 +76,7 @@ The default path in `terraform.tfvars` is `/var/lib/libvirt/images/talos-metal-a
 ## 3. Firewall
 
 This tripped me up. If you run nftables (which you should be), the default policy drops everything — including DHCP, DNS, and forwarding for your VM bridge. The nodes will boot but sit there with no IP.
-
+Bridge name comes from the cluster name. (br-cluster) configure your nftables.conf accordingly.
 You need to allow the KVM bridge (`br-talos`) through your firewall. Add these rules and load them with `sudo nft -f /path/to/nftables.conf`:
 
 ```nftables
